@@ -7,6 +7,10 @@ RUN yum -y update; yum clean all
 RUN yum -y install httpd; yum clean all
 RUN echo "Apache" >> /var/www/html/index.html
 RUN yum -y install openscap-scanner; yum clean all
+RUN yum -y install wget; yum clean all
+RUN wget https://www.redhat.com/security/data/oval/Red_Hat_Enterprise_Linux_6.xml
+RUN oscap oval eval --results rhsa-results-oval.xml --report oval-report.html Red_Hat_Enterprise_Linux_6.xml
+
 
 EXPOSE 80
 

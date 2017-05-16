@@ -12,33 +12,21 @@ Get Docker version
 ```
 
 To build:
-
-Copy the sources down and do the build-
-
+In your working local directory:
 ```
-# docker build -rm -t <username>/httpd .
+# docker build -t rhel1 .
 ```
 
-To run (if port 80 is open on your host):
-
+To run:
+Here we create a volume /vol that maps to our host directory
 ```
-# docker run -d -p 80:80 <username>/httpd
-```
-
-or to assign a random port that maps to port 80 on the container:
-
-```
-# docker run -d -p 80 <username>/httpd
+# docker run -it -v /Users/polmyles/openSCAP_logs:/vol rhel1
 ```
 
-To the port that the container is listening on:
+To view logs:
+Move oval-report.html to /vol so it appears in our local directory as well
+```
+# mv oval-report.html /vol
+```
+Now you can navigate to your local directory and view the .html file that was created
 
-```
-# docker ps
-```
-
-To test:
-
-```
-# curl http://localhost
-```
