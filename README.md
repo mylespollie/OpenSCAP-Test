@@ -1,6 +1,3 @@
-dockerfiles-fedora-httpd
-========================
-
 Red Hat Enterprise Linux dockerfile for httpd
 
 Tested on Docker 0.10.0-dev
